@@ -1,0 +1,373 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+
+  margin: 0;
+
+  padding: 0;
+}
+
+:root {
+  /* Fontes */
+  --spartan: 'League Spartan', sans-serif;
+
+  /* Cores */
+  --dark-gray: hsl(0, 0%, 63%);
+  --black: hsl(0, 0%, 0%);
+  --white: hsl(0, 0%, 100%);
+  --very-dark-gray: hsl(0, 0%, 27%);
+}
+
+body {
+  font-family: var(--spartan);
+
+  font-size: 12px;
+}
+
+.main {
+  display: grid;
+
+  grid-template-areas: 
+    'main'
+    'cta'
+    'about-dark'
+    'about'
+    'about-light'
+    'attribution'
+  ;
+
+  grid-template-columns: 1fr;
+
+  grid-template-rows: repeat(5, max-content);
+
+  margin: 0 auto;
+
+  max-width: 1440px;
+}
+
+.container {
+  margin: 0 auto;
+
+  overflow: hidden;
+}
+
+/* grid-area: main; */
+.main__hero {
+  background-image: url(../imgs/mobile-image-hero-1.jpg);
+
+  background-position: center;
+
+  background-size: cover;
+
+  grid-area: main;
+
+  min-height: 350px;
+}
+
+.main__nav {
+  display: flex;
+
+  padding: 40px 0;
+
+  width: 85%;
+}
+
+.main__list {
+  display: none;
+}
+
+.main__hamburguer {
+  cursor: pointer;
+}
+
+.main__logo {
+  margin: 0 auto;
+}
+
+.main__controls {
+  align-items: center;
+
+  align-self: flex-end;
+
+  display: flex;
+
+  grid-area: main;
+
+  height: 50px;
+
+  justify-self: end;
+
+  width: 100px;
+}
+
+.main__control {
+  align-items: center;
+
+  background-color: var(--black);
+
+  cursor: pointer;
+
+  display: flex;
+
+  height: 100%;
+
+  justify-content: center;
+
+  transition: .4s;
+
+  width: 100%;
+}
+
+.main__control img {
+  height: 20px;
+}
+
+/* grid-area: cta; */
+.main__buy {
+  grid-area: cta;
+
+  padding: 60px 0 70px;
+}
+
+.main__buy, 
+.main__about {
+  width: 85%;
+}
+
+.main__content {
+  align-items: flex-start;
+
+  display: flex;
+
+  flex-direction: column;
+
+  height: 100%;
+
+  justify-content: center;
+
+  width: 100%;
+}
+
+.main__title {
+  color: black;
+
+  font-size: 2.2rem;
+
+  font-weight: 600;
+}
+
+.main__paragraph {
+  color: var(--dark-gray);
+
+  font-size: 1rem;
+
+  line-height: 1.5;
+
+  margin: 20px 0 40px;
+}
+
+.main__cta {
+  color: var(--black);
+
+  font-size: 1rem;
+
+  letter-spacing: 10px;
+
+  text-decoration: none;
+
+  text-transform: uppercase;
+
+  transition: .4s;
+}
+
+.main__arrow {
+  margin-left: 10px;
+}
+
+/* grid-area: about-dark; && grid-area: about-light; */
+.main__about-dark,
+.main__about-light {
+  background-position: center;
+
+  background-size: cover;
+
+  height: 100%;
+
+  min-height: 250px;
+}
+
+.main__about-dark {
+  background-image: url(../imgs/image-about-dark.jpg);
+
+  grid-area: about-dark;
+}
+
+.main__about-light {
+  background-image: url(../imgs/image-about-light.jpg);
+
+  grid-area: about-light;
+}
+
+/* grid-area: about; */
+.main__about {
+  grid-area: about;
+
+  padding: 50px 0;
+}
+
+.main__title-about {
+  font-size: .9rem;
+
+  font-weight: 700;
+
+  letter-spacing: 6px;
+
+  text-transform: uppercase;
+}
+
+.main__about .main__paragraph {
+  margin-bottom: 0;
+}
+
+/* grid-area: attribution; */
+.attribution { 
+  grid-area: attribution;
+
+  padding: 20px 0;
+
+  text-align: center;
+
+  width: 100%;
+}
+
+.attribution p {
+  font-size: 16px;
+
+  margin-bottom: 12px;
+}
+
+.attribution :is(a, p) { color: hsl(228, 45%, 44%); }
+
+@media (min-width: 440px) {
+  .main__hero {
+    background-image: url(../imgs/desktop-image-hero-1.jpg);
+
+    min-height: 400px;
+  }
+}
+
+@media (min-width: 525px) {
+  .main__about-light {
+    background-position: top;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 70px 0;
+
+    width: 85%;
+  }
+
+  .main {
+    grid-template-areas: 
+      'main main main main main main cta cta cta cta'
+      'main main main main main main cta cta cta cta'
+      'main main main main main main cta cta cta cta'
+      'about-dark about-dark about-dark about about about about about-light about-light about-light'
+      'about-dark about-dark about-dark about about about about about-light about-light about-light'
+      'attribution attribution attribution attribution attribution attribution attribution attribution attribution attribution'
+    ;
+
+    grid-template-columns: repeat(10, 1fr);
+  }
+
+  .main__hero {
+    min-height: 500px;
+  }
+
+  .main__hamburguer {
+    display: none;
+  }
+
+  .main__logo {
+    height: 15px;
+
+    margin: 0;
+  }
+
+  .main__list {
+    display: grid;
+
+    gap: 2rem;
+
+    grid-auto-flow: column;
+
+    list-style: none;
+
+    margin-left: 40px;
+  }
+
+  .main__link {
+    color: var(--white);
+
+    font-size: 16px;
+
+    padding-bottom: 5px;
+
+    text-decoration: none;
+
+    text-transform: lowercase;
+  }
+
+  .main__controls {
+    grid-area: cta;
+
+    height: 70px;
+
+    justify-self: flex-start;
+
+    width: 145px;
+  }
+
+  .main__control:hover {
+    background-color: var(--very-dark-gray);
+  }
+
+  .main__control img {
+    height: 25px;
+  }
+
+  .main__buy {
+    padding: 120px 40px 180px;
+  }
+
+  .main__content {
+    justify-content: flex-start;
+  }
+
+  .main__title {
+    font-size: 3rem;
+  }
+
+  .main__paragraph {
+    margin-bottom: 50px;
+  }
+
+  .main__about {
+    padding: 80px 0 60px;
+  }
+
+  .main__title-about {
+    font-size: 1.1rem;
+  }
+
+  .main__about-light {
+    background-position: center;
+  }
+
+  .attribution {
+    padding: 30px 0 10px;
+  }
+}
